@@ -14,7 +14,7 @@
     <name>taxe_tnb</name>
     <description>taxe_tnb</description>
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
