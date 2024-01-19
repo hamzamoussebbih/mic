@@ -1,0 +1,113 @@
+
+<div class="container mt-5">
+
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="p-5 bg-light rounded">
+        <form class="form" (ngSubmit)="onSubmit()">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="selectSurface" style="color: gray;">Surface</label>
+              <select id="selectSurface" class="form-select w-70" [(ngModel)]="taxes.terrain" name="terrain">
+                <option value="" disabled selected>Select a surface</option>
+                <option *ngFor="let ter of terrain" [ngValue]="ter">{{ ter.id }} - {{ ter.mc }}</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="selectCategory" style="color: gray;">Categories</label>
+              <select id="selectCategory" class="form-select w-70" [(ngModel)]="taxes.categorie" name="categorie">
+                <option value="" disabled selected>Select a category</option>
+                <option *ngFor="let cat of categorie" [ngValue]="cat">{{ cat.id }} - {{ cat.type }}</option>
+              </select>
+            </div>
+            
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="selectOwner" style="color: gray;">Owner</label>
+              <select id="selectOwner" class="form-select w-70" [(ngModel)]="taxes.proprietaire" name="proprietaire">
+                <option value="" disabled selected>Select an owner</option>
+                <option *ngFor="let prop of proprietaire" [ngValue]="prop">{{ prop.id }} - {{ prop.cin }}</option>
+              </select>
+            </div>
+            
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="selectRate" style="color: gray;">Taux</label>
+              <select id="selectRate" class="form-select w-70" [(ngModel)]="taxes.taux" name="taux">
+                <option value="" disabled selected>Select a rate</option>
+                <option *ngFor="let tau of taux" [ngValue]="tau">{{ tau.id }} - {{ tau.montant }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="selectRate" style="color: gray;">Year</label>
+
+              <input type="number" class="form-control w-70" name="tnbyear" placeholder="2024" min="1"
+                [(ngModel)]="taxes.tnbyear">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="selectRate" style="color: gray;">Description</label>
+
+              <input type="text" class="form-control w-70" name="description" placeholder="Description"
+                [(ngModel)]="taxes.description">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6 ">
+              <label for="selectRate" style="color: gray;">name</label>
+
+              <input type="text" class="form-control w-70" name="label" placeholder="Name" [(ngModel)]="taxes.label">
+            </div>
+            </div>
+          <button type="submit" class="btn btn-success mt-4">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <table class="table mt-5">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Montant</th>
+        <th scope="col">TnbYear</th>
+        <th scope="col">Description</th>
+        <th scope="col">Label</th>
+        <th scope="col">Categorie</th>
+        <th scope="col">Proprietaire</th>
+        <th scope="col">Surface</th>
+        <th scope="col">Taux</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let taxes of taxe">
+        <td>{{taxes.montantbase}}</td>
+        <td>{{taxes.tnbyear}}</td>
+        <td>{{taxes.description}}</td>
+        <td>{{taxes.label}}</td>
+        <td>{{taxes.categorie?.type}}</td>
+        <td>{{taxes.proprietaire?.nom}}</td>
+        <td>{{taxes.terrain?.mc}}</td>
+        <td>{{taxes.taux?.montant}}</td>
+        <td>
+          <button (click)="deleteTaxe(taxes.id)" class="btn btn-danger me-2">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

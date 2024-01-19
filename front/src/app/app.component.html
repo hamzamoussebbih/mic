@@ -1,0 +1,54 @@
+<ng-container *ngIf="isLoggedIn; else notLoggedIn">
+  <nav class="navbar navbar-expand-lg">
+    <div class="collapse navbar-collapse ms-1" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="#"><img src="../assets/images/ss.png" alt="Moughit" style="width: 80px; height: 80px;"></a>
+        </li>
+        <br>
+        <hr>
+        <li></li>
+        <li class="nav-item mt-4">
+          <a class="nav-link" routerLink = "/terrain"><i class="bi"></i>Terrains</a>
+        </li>
+        <li class="nav-item active mt-4">
+          <a class="nav-link" routerLink = "/proprietaire"><i class="bi"></i>Proprietaires</a>
+        </li>
+        <li class="nav-item mt-4">
+          <a class="nav-link" routerLink = "/categorie"><i class="bi"></i>Categories</a>
+        </li>
+        <li class="nav-item mt-4">
+          <a class="nav-link" routerLink = "/taux"><i class="bi"></i>Taux</a>
+        </li>
+        <li class="nav-item mt-4">
+          <a class="nav-link" routerLink = "/taxetnb"><i class="bi"></i>Taxes</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+        <b><div class="ms-5 p-3 text-center"> Welcome to the Taxes TNB Management App</div></b>
+        </div>
+      </div>
+      
+  </div>
+  </div>
+  <router-outlet></router-outlet>
+</ng-container>
+<ng-template #notLoggedIn>
+  
+  <router-outlet></router-outlet>
+</ng-template>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="text-muted">© Moussebbih / Laazizi</p>
+      </div>
+    </div>
+  </div>
+</footer>

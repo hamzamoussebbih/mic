@@ -1,0 +1,22 @@
+<h3 class="ms-5 p-3 text-center">Update Terrain</h3>
+<div class="p-5">
+  <form class="form" (ngSubmit) = "onSubmit()">
+    <input type="number" class="form-control w-50" min="1"
+      name="mc" placeholder="Mc" [(ngModel)]="terrains.mc">
+
+    <label class="mt-3" style="color: gray;">Proprietaires</label>
+    <select id="select1" class="form-select w-50" [(ngModel)]="terrains.proprietaire" name="proprietaires">
+      <option value="" disabled selected>Select a proprietaire</option>
+      <option *ngFor="let prop of proprietaire" [ngValue]="prop">{{ prop.id }} - {{ prop.cin }}</option>
+    </select>
+
+    <label class="mt-3" style="color: gray;">Categories</label>
+    <select class="form-select w-50" [(ngModel)]="terrains.categorie" name="categories">
+      <option value="" disabled selected>Select a categorie</option>
+      <option *ngFor="let cat of categorie" [ngValue]="cat">{{ cat.id }} - {{ cat.type }}</option>
+    </select>
+
+    <button type="submit" class="btn btn-outline-secondary mt-3">Update</button>
+    <button (event) = "goToTerrainHome()" type="submit" class="btn btn-outline-warning mt-3 ms-3">Return</button>
+  </form>
+</div>
